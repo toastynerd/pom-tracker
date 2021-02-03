@@ -1,11 +1,12 @@
 import React from 'react';
+import { Timer } from './index';
 
 function App() {
   return (
     <div>
-      <h1>Here is the app</h1>
+      <Timer />
     </div>
   )
-}
+};
 
 export default App;
