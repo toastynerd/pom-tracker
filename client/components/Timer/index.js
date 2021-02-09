@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import './Timer.css';
 
 function Timer() {
   const initSeconds = 1500; //25 minutes worth of seconds
@@ -31,28 +32,28 @@ function Timer() {
   };
 
   return (
-    <React.Fragment>
-      <div className="time-left">
+    <div className="timer-container">
+      <p className="time-left">
         <span className="minutes">
           {Math.floor(seconds / 60)}
         </span>:
         <span className="seconds">
           {Math.floor(seconds % 60).toString().padStart(2, '0')}
         </span>
-      </div>
+      </p>
       <button 
-        className="timer start"
+        className="button start"
         onClick={toggle}
       >
         {isActive? 'Pause' : 'Start'} Timer
       </button>
       <button
-        className="timer reset"
+        className="button reset"
         onClick={reset}
       >
         Reset Timer
       </button>
-    </React.Fragment>
+    </div>
   )
 };
 
