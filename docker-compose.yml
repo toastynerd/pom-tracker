@@ -1,0 +1,30 @@
+services:
+  nodejs:
+    image: "node:latest"
+    user: node
+    working_dir: /home/node/app
+    container_name: pom_tracker
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - 4000:4000
+    command: "npm run start-server"
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    env_file:
+      - ".env.${ENV}"
+
+  mongo:
+    image: "mongo"
+    env_file:
+      - ".mongoenv.${ENV}"
+    environment:
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - ./data:/data/db
+    ports:
+      - '27017:27017'
