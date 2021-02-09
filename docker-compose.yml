@@ -19,11 +19,7 @@ services:
   mongo:
     image: "mongo"
     env_file:
-      - ".mongoenv.${ENV}"
-    environment:
-      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      - "./.mongoenv.${ENV}"
     volumes:
       - ./data:/data/db
     ports:

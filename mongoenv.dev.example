@@ -1,0 +1,3 @@
+MONGO_INITDB_DATABASE=pom-tracker-dev
+MONGO_INITDB_ROOT_USERNAME=pom-tracker-dev
+MONGO_INITDB_ROOT_PASSWORD=pom-tracker-dev
